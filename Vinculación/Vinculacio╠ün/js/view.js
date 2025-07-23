@@ -5,8 +5,8 @@ const ChatView = (() => {
 
   function appendMessage(message, sender = "user") {
     const msgDiv = document.createElement("div");
-    msgDiv.textContent = `${sender === "user" ? "Tú" : "Bot"}: ${message}`;
-    msgDiv.className = sender;
+    msgDiv.classList.add("message", sender); // Aplica clases de burbuja
+    msgDiv.textContent = message;
     chatWindow.appendChild(msgDiv);
     chatWindow.scrollTop = chatWindow.scrollHeight;
   }
@@ -30,6 +30,6 @@ const ChatView = (() => {
     appendMessage,
     getInput,
     clearInput,
-    bindSend
+    bindSend,
   };
 })();
